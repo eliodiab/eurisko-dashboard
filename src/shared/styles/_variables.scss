@@ -1,0 +1,12 @@
+$base-color: rgb(18,18,18);
+$border-dark: $base-color;
+$border-medium-dark: rgba($base-color, 0.8);
+$border-light-dark: rgba($base-color, 0.4);
+$title-font-size: 1.5rem;
+$font-family:'Roboto', sans-serif;
+$font-weights: (
+    "light" : 300,
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+)

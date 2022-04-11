@@ -1,0 +1,42 @@
+@import "../../styles/variables";
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+
+  label{
+    font-weight: map-get($font-weights, bold);
+    margin-bottom: 0.5rem;
+    font-size:0.8rem;
+  }
+
+  input{
+    width: 100%;
+    font: inherit;
+    border: 1px solid $border-light-dark;
+    background: #f8f8f8;
+    padding: 0.15rem 0.25rem;
+    border-radius: 3px;
+    height:2.5rem;
+
+    &:focus{
+      outline: none;
+      background: #ebebeb;
+      border-color: $border-dark;
+    }
+  }
+
+  &.form-control--invalid{
+    > p{
+      font-size: 0.8rem;
+      color:rgb(208, 2, 27);
+      font-weight: map-get($font-weights, medium);
+      margin-top:0.25rem;
+    }
+
+    input{
+      border-color: $border-medium-dark;
+    }
+  }
+}
