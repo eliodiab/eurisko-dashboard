@@ -4,7 +4,29 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Documentation
 
-This project is not using any UI Kit or UI framework except for sass
+This project is not using any UI Kit or UI framework except for sass. The design is inspired by NY Times' website and also responsive on all devices.
+
+### Pages and Components
+
+#### Login Page
+
+1. The project uses axios to login and fetch the token.
+   The token is stored in redux and in the local storage for 2 hours instead of cookie to prevent from sending requests to the server everytime.
+1. A spinner appears everytime the api is called.
+1. The login button is disabled when the input fields are empty or when the api is called.
+1. An error message is displayed whenever the api call fails.
+
+#### Dashboard Page
+
+1. When the user tries to access the dashboard page directly, the user is redirected to the login page if no token was found.
+1. The dashboard page is made of 3 components: Header, ArticlesList and Article.
+1. The Header component is fixed while the user scrolls the page and contains a logo, a search input and a logout button.
+1. The ArticlesList component contains all the articles or the filetered articles based on the value in the input search.
+1. The input filters the articles by checking if the word is included in the title or the body.
+1. Whenever the user scrolls to the bottom of the page, new articles are displayed.
+1. If the search input is not empty, scrolling to the bottom of the page will not load new articles.
+1. If user clicks on an article, a new tab will open with the content of that article.
+1. When the user clicks on the logout button he will be redirected to the login page.
 
 ## Available Scripts
 
