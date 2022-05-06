@@ -12,15 +12,14 @@ import ArticlesList from "../components/ArticlesList";
 import "./Dashboard.scss"
 
 const Dashboard = () => {
-
     const dispatch = useDispatch();
-    let localToken = JSON.parse(localStorage.getItem('userToken'));
+    const localToken = JSON.parse(localStorage.getItem('userToken'));
     const token = useSelector(state => state.login).token || (localToken != null && localToken.token);
 
     const {isLoading, articles, filteredArticles, hasMore, pageNumber, errorMessage} = useSelector(state => state.dashboard);
-    const [inputSearch, setInputSearch] = useState("");
-    const [color] = useState("#121212");
 
+    const [inputSearch, setInputSearch] = useState("");
+    const color = '#121212';
 
     //load on scroll implementation using IntersectionObserver
     const observer = useRef();
@@ -30,11 +29,11 @@ const Dashboard = () => {
         observer.current = new IntersectionObserver(entries => {
             if(entries[0].isIntersecting && hasMore){
                 dispatch(actions.articlesLoading())
-                dispatch(getArticles(token, pageNumber))
+                dispatch(getArticles(pageNumber))
             }
         })
         if(node) observer.current.observe(node);
-    },[hasMore,isLoading,pageNumber,token,dispatch])
+    },[hasMore,isLoading,pageNumber,dispatch])
 
     //logout function
     const handleLogout = () => {
@@ -44,8 +43,8 @@ const Dashboard = () => {
 
     //
     const handleChange = (event) => {
-        let searchInput = event.target.value;
-        let filteredArray = articles.filter(
+        const searchInput = event.target.value;
+        const filteredArray = articles.filter(
             article => article.lead_paragraph.toLowerCase().includes(searchInput.toLowerCase().trim()) 
             || 
             article.headline.main.toLowerCase().includes(searchInput.toLowerCase().trim())); //filter based on lead_paragraph and headline main
@@ -61,7 +60,7 @@ const Dashboard = () => {
     let esLintgetArticles = useRef(); 
     esLintgetArticles.current = () => {
         dispatch(actions.articlesLoading());
-        dispatch(getArticles(token, pageNumber));
+        dispatch(getArticles(pageNumber));
     }
 
     useEffect( () => {

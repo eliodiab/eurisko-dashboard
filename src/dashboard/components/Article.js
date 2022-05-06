@@ -4,7 +4,7 @@ const Article = (props) => {
 
     const { article, lastArticleElementRef} = props;
 
-    let options = { year:"numeric", month: "long", day: 'numeric'};
+    const options = { year:"numeric", month: "long", day: 'numeric'};
 
     return(
         <article ref={lastArticleElementRef}>

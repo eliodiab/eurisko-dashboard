@@ -2,7 +2,6 @@ import image from "../../assets/Eurisko_logo.png";
 import "./Header.scss";
 
 const Header = (props) => {
-
     return (
         <div className="dashboardHeader">
             <div className="headerContent">

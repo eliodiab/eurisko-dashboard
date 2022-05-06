@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ClipLoader from "react-spinners/ClipLoader";
@@ -18,14 +17,13 @@ const Login = () => {
 
     const dispatch = useDispatch();
 
-
     const {isLoading,errorMessage} = useSelector(state => state.login);
 
-    let localToken = JSON.parse(localStorage.getItem('userToken')); 
+    const localToken = JSON.parse(localStorage.getItem('userToken')); 
 
     const token = useSelector(state => state.login).token || (localToken != null && localToken.token);
     
-    const [color] = useState("#fff");
+    const color = '#FFF';
 
     const [formState, inputHandler] = useForm(
         {

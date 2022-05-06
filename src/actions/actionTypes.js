@@ -1,4 +1,4 @@
-let actionTypes = {
+const actionTypes = {
     LOGIN_LOADING: 'LOGIN_LOADING', 
     ARTICLES_LOADING: 'ARTICLES_LOADING', 
     SET_TOKEN: 'SET_TOKEN',
